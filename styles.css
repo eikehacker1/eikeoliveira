@@ -1,0 +1,268 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    overflow-x: hidden; /* Remove a barra de rolagem horizontal */
+    overflow-y: auto; /* Permite a rolagem vertical */
+  }
+  
+  /* Vídeo de fundo */
+  .video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Garante que o vídeo cubra toda a largura da tela */
+    height: 100vh; /* Garante que o vídeo cubra toda a altura da tela */
+    z-index: -1;
+    overflow: hidden; /* Impede qualquer overflow */
+  }
+  
+  .video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Container principal */
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex; /* Layout flexível para colunas */
+    gap: 20px; /* Espaço entre as colunas */
+  }
+  
+  /* Coluna da esquerda */
+  .left-column {
+    flex: 1; /* Ocupa 1 parte do espaço disponível */
+    max-width: 400px; /* Largura máxima para a coluna da esquerda */
+  }
+  
+  /* Coluna da direita */
+  .right-column {
+    flex: 2; /* Ocupa 2 partes do espaço disponível */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaço entre as seções */
+  }
+  
+  /* Estilo do painel transparente */
+  header, .about, .social-links, .companies {
+    background: rgba(0, 0, 0, 0.5); /* Fundo preto transparente */
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 123, 255, 0.7); /* Borda azul */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Foto de perfil redonda */
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid rgba(0, 123, 255, 0.7);
+    margin-bottom: 15px;
+  }
+  
+  /* Texto de apresentação */
+  .profile h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    white-space: normal; /* Permite que o texto quebre em várias linhas */
+    overflow: visible; /* Garante que o texto não seja cortado */
+    text-overflow: clip; /* Remove as reticências */
+  }
+  
+  .profile p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Animação de digitação */
+  .typing-effect {
+    overflow: hidden;
+    border-right: .15em solid rgba(0, 123, 255, 0.7);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgba(0, 123, 255, 0.7); }
+  }
+  
+  /* Sessão "Sobre Mim" */
+  .about h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .about p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Sessão de links sociais */
+  .social-links h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .links {
+    display: flex;
+    flex-direction: column; /* Links em coluna */
+    gap: 10px; /* Espaço entre os links */
+  }
+  
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: 2px solid rgba(0, 123, 255, 0.7);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+  
+  .social-link:hover {
+    background: rgba(0, 123, 255, 0.3);
+  }
+  
+  .social-link i {
+    font-size: 1.5rem;
+  }
+  
+  /* Sessão de empresas */
+  .companies {
+    padding: 15px; /* Reduz o padding para diminuir a caixa */
+  }
+  
+  .companies h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .company-links {
+    display: flex;
+    flex-direction: row; /* Logos lado a lado */
+    gap: 15px; /* Espaço entre as logos */
+    justify-content: center; /* Centraliza as logos */
+    align-items: center; /* Alinha verticalmente */
+  }
+  
+  /* Estilo padrão para as logos (sem fundo branco) */
+  .company-link img {
+    width: 80px; /* Tamanho reduzido das logos */
+    height: 80px;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 123, 255, 0.7);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .company-link:hover img {
+    transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Estilo para as logos com fundo branco */
+  .company-link.white-bg {
+    background: white; /* Fundo branco */
+    padding: 10px; /* Espaçamento interno */
+    border-radius: 10px; /* Borda arredondada */
+    border: 2px solid rgba(0, 123, 255, 0.7); /* Borda azul */
+  }
+  
+  /* Ajuste para as imagens dentro das logos com fundo branco */
+  .company-link.white-bg img {
+    border: none; /* Remove a borda da imagem */
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Colunas empilhadas em telas menores */
+    }
+  
+    .left-column, .right-column {
+      max-width: 100%; /* Largura total em telas menores */
+    }
+  
+    .profile h1 {
+      font-size: 2rem;
+    }
+  
+    .profile p {
+      font-size: 1rem;
+    }
+  
+    .about h2, .social-links h2, .companies h2 {
+      font-size: 1.5rem;
+    }
+  
+    .about p {
+      font-size: 0.9rem;
+    }
+  
+    .social-link {
+      font-size: 1rem;
+      padding: 8px 16px;
+    }
+  
+    .company-link img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .profile-picture {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .profile h1 {
+      font-size: 1.5rem;
+    }
+  
+    .profile p {
+      font-size: 0.9rem;
+    }
+  
+    .about h2, .social-links h2, .companies h2 {
+      font-size: 1.2rem;
+    }
+  
+    .about p {
+      font-size: 0.8rem;
+    }
+  
+    .social-link {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+    }
+  
+    .company-link img {
+      width: 50px;
+      height: 50px;
+    }
+  }
